@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Novo Produto</title>
+</head>
+<body>
+  <a href="/">Inicio</a>
+
+	<form action="#"  th:action="@{/salvar-produto}" th:object="${novoProduto}" method="POST">
+	 	<input type="text" th:field="*{nomeProduto}" placeholder="Nome do Produto"/> 
+		<input type="number" th:field="*{preco}" placeholder="Preço $"/>
+		<input type="number" th:field="*{quantidade}" placeholder="Quantidade"/>
+		<input type="text" th:field="*{descricao}" placeholder="Descrição"/>
+		
+		<div th:object="${categoriaObject}">
+			<select th:field="*{idCategoria}">
+				<option value="0">Seleciona uma categória</option>
+				<option th:each="categoria: ${listaCategoria}" th:value="${categoria.idCategoria}"  th:text="${categoria.nomeCategoria}"></option>
+			</select>
+		</div>
+		
+		<button type="submit">Salvar</button>
+	</form>
+</body>
+</html>

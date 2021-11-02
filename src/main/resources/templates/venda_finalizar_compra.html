@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Finalizar Compra</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/finalizar-compra}" th:object="${salvarObject}" method="POST">
+		<input type="text" th:field="*{nomeCliente}" placeholder="O teu nome Completo"> <br>
+		<input type="email" th:field="*{email}" placeholder="email@dominio.com"> <br>
+		
+		<textarea th:field="*{mensagem}" rows="5" cols="33" placeholder="Deixa a tua mensagem"> <br>
+			
+		</textarea>
+	<div th:object="${produtoSelecionado}">
+		<input type="hidden" th:field="${produtoSelecionado.idProduto}"/>
+		<p th:text="${produtoSelecionado.nomeProduto}"></p>
+		<p th:text="${produtoSelecionado.preco}"></p>
+		<p th:text="${produtoSelecionado.descricao}"></p>
+		<p th:text="${produtoSelecionado.categoria.nomeCategoria}"></p>
+	</div>
+	<br>
+	<label> Quantidade</label>
+	<input type="number" th:field="*{quantidade}" />
+	<button type="submit">Finalizar Compra</button>
+</form>
+
+</body>
+</html>
