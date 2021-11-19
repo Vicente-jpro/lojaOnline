@@ -1,6 +1,7 @@
 package com.adicionapag.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +29,11 @@ import lombok.ToString;
 public class Venda {
 	
 	@Id @GeneratedValue( strategy = GenerationType.IDENTITY)
+	@Column( name = "id_venda")
 	private Long idVenda;
 	
-	@Column( name = "data_venda")
-	private LocalDate dataVenda;
+	@Column(name = "data_venda", columnDefinition = "TIMESTAMP")
+	private LocalDateTime dataVenda;
 	
 	@Column ( name = "nome_cliente")
 	private String nomeCliente;

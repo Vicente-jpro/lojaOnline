@@ -1,6 +1,11 @@
 package com.adicionapag.controllers;
 
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +53,11 @@ public class VendaController {
 	public String finalizarCompra(@ModelAttribute("produtoSelecionado") Produto produto, 
 			@ModelAttribute("salvarObject") Venda venda) {
 		
-		
+		LocalDateTime date = LocalDateTime.now();
+		venda.setDataVenda(date);
+		List<Produto> list = new ArrayList<>();
+		list.add(produto) ;
+		venda.setProdutos( list );
 		log.info("\n\n"+produto+"\n\n"+ venda);
 		vendaServicedb.create(venda);
 		log.info("\n\n");

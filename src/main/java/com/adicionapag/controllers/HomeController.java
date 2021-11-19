@@ -8,6 +8,8 @@ import com.adicionapag.model.Categoria;
 import com.adicionapag.model.Produto;
 import com.adicionapag.service.CategoriaServicedb;
 
+import lombok.extern.java.Log;
+
 
 @Controller
 public class HomeController {
@@ -17,7 +19,7 @@ public class HomeController {
 		
 		// modelProduto.addAttribute("novoProduto", new Produto() );
 		// modelCategoria.addAttribute("listaCategoria", this.categoriaServicedb.readAll() );
-		
+	
 		return "index";
 	}
 	

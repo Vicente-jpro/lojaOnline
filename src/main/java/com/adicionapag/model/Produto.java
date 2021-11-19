@@ -43,11 +43,11 @@ public class Produto {
 	@Column( name ="data_cadastro")
 	private LocalDate dataCadastro;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST})
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "categoria_id" )
 	private Categoria categoria;
 	
-	@ManyToMany( mappedBy = "produtos")
+	@ManyToMany( cascade = CascadeType.ALL, mappedBy = "produtos")
 	private List<Venda> vendas = new ArrayList<>();
 	
 }
